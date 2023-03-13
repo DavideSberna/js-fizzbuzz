@@ -1,50 +1,36 @@
+
+
+
 let squareLoop = 100;
-const rowSquare = document.getElementById("row-square");
-const colSquare = document.getElementById("col-square");
 
+for(let i = 1; i <= squareLoop; i++){
+    
+    const container = document.getElementById("container");
+    const rowSquare = document.createElement("div");
+    const colSquare = document.createElement("div");
+    const text = document.createElement("p");
 
-
-
-
-
-for(let i = 2; i < squareLoop +1; i++){
-                    
-
-   
+        
+    rowSquare.classList.add("p-10");
+    colSquare.classList.add("p-10", "col", "d-flex", "items-center");
+    container.appendChild(rowSquare);
+    rowSquare.appendChild(colSquare);
+    colSquare.appendChild(text);
+    
 
     if(i % 3 === 0 && i % 5 === 0){
-        rowSquare.innerHTML += `<div id="col-square" class="p-10 col">
-                            <div class="square bg-red">
-                                <p>${i} FIZZBUZZ</p>
-                            </div>
-                        </div>`
-
-    } else if(i % 3 === 0) {
-        rowSquare.innerHTML += `<div id="col-square" class="p-10 col">
-                                <div class="square bg-green">
-                                    <p>${i} FIZZ</p>
-                                </div>
-                            </div>`                  
-    } else if (i % 5 === 0){
-        rowSquare.innerHTML += `<div id="col-square" class="p-10 col">
-        <div class="square bg-yellow">
-            <p>${i} BUZZ</p>
-        </div>
-    </div>`
+        text.append("FIZZBUZZ")
+        colSquare.classList.add("bg-red");
+    } else if(i % 3 === 0){
+        text.append("FIZZ"); 
+        colSquare.classList.add("bg-green");
+    } else if(i % 5 === 0) {
+        text.append("BUZZ");
+        colSquare.classList.add("bg-yellow");
     } else {
-        rowSquare.innerHTML += `<div id="col-square" class="p-10 col">
-        <div class="square bg-blue">
-            <p>${i}</p>
-        </div>
-    </div>`
+        text.append(`${i}`);
+        colSquare.classList.add("bg-blue");
     }
 
 
-
-    
 }
-
-
-
-
-
